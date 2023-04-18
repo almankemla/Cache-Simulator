@@ -1,96 +1,102 @@
 {\rtf1\ansi\ansicpg1252\cocoartf2708
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red39\green42\blue42;\red184\green14\blue61;
-\red251\green252\blue255;}
-{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;\cssrgb\c20392\c21961\c21961;\cssrgb\c78039\c14510\c30588;
-\cssrgb\c98824\c99216\c100000;}
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;\red39\green42\blue42;\red26\green26\blue26;\red15\green121\blue172;
+\red38\green38\blue38;\red246\green246\blue246;}
+{\*\expandedcolortbl;;\cssrgb\c20392\c21961\c21961;\cssrgb\c13333\c13333\c13333;\cssrgb\c0\c54902\c72941;
+\cssrgb\c20000\c20000\c20000;\cssrgb\c97255\c97255\c97255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \deftab720
 \pard\pardeftab720\sa210\partightenfactor0
 
-\f0\b\fs60 \cf2 \expnd0\expndtw0\kerning0
-Introduction
-\f1\b0 \cf0 \kerning1\expnd0\expndtw0 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\fs28 \cf0 Implement a multiprocessor operating system simulator using a popular userspace threading library for linux called pthreads. \
-
-\fs24 \
-
-\fs40 Files Included:
-\fs24 \
-
-\fs28 os-sim.c - Code for the operating system simulator.\
-os-sim.h - Header file for the simulator.\
-process.c - Descriptions of the simulated processes.\
-process.h - Header file for the process data.\
-student.c - Ir code for the scheduler.\
-student.h - Header file for Ir scheduler code.
-\fs24 \
-\
-
-\fs50 Scheduling Algorithms\
-
-\fs28 For this simulator, I implement the following three CPU scheduling algorithms:\
-\
-
-\f0\b First In, First Out (FIFO)
-\f1\b0  - Runnable processes are kept in a ready queue. FIFO is non-preemptive; once a process begins running on a CPU, it will continue running until it either completes or blocks for I/O.\
-\
-
-\f0\b Round-Robin
-\f1\b0  - Similar to FIFO, except preemptive. Each process is assigned a timeslice when it is scheduled. At the end of the timeslice, if the process is still running, the process is preempted, and moved to the tail of the ready queue.\
-\
-For this scheduling, -r, which selects the Round-Robin scheduling algorithm, and accepts a parameter, the length of the timeslice. For this project, timeslices are measured in tenths of seconds. E.g.:\
-\
-./os-sim <# CPUs> -r 5\
-\
-should run a Round-Robin scheduler with timeslices of 500 ms. While:\
-\
-./os-sim <# of CPUs>\
-\
-should continue to run a FIFO scheduler.\
-\
-
-\f0\b Longest Remaining Time First (LRTF) 
-\f1\b0  - The process with the longest remaining time in its burst always gets the CPU. Shorter processes must be pre-empted if a process that has a longer burst becomes runnable.\
-\
-For this  scheduling, -l, which selects the LRTF scheduling algorithm. E.g.:\
-\
-./os-sim <# CPUs> -l\
-\
-should run a LRTF scheduler. While:\
-\
-./os-sim <# of CPUs>\
-\
-should continue to run a FIFO scheduler.
-\fs24 \
-\
-
-\fs50 Process States\
-
-\fs28 In my OS simulation, there are five possible states for a process, which are listed in the process_state_t enum in os-sim.h:\
-\
-NEW - The process is being created, and has not yet begun executing.\
-READY - The process is ready to execute, and is waiting to be scheduled on a CPU.\
-RUNNING - The process is currently executing on a CPU.\
-WAITING - The process has temporarily stopped executing, and is waiting on an I/O request to complete.\
-TERMINATED - The process has completed.\
-There is a field named state in the PCB, which must be updated with the current state of the process. The simulator will use this field to collect statistics.\
-
-\fs60 \
-
-\fs50 Compile and Run\
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+In this lab, you will write a cache simulator that you will use to evaluate and compare the cache hit rates for several cache architectures. \
+Given a cache memory organization, your simulator should read a file containing a memory trace (a sequence of memory addresses) and determine which of the memory references will cause cache hits (and which will cause misses). The program should keep track of the number of hits and misses generated by each cache over the entire trace. For every memory access you will need to update your cache data structures and update any cache statistics (more on this later).\
 \pard\pardeftab720\sa210\partightenfactor0
 
-\fs28 \cf3 \expnd0\expndtw0\kerning0
-Compile and run the simulator with \cf4 \cb5 ./os-sim 2\cf3 \cb1 . After a few seconds, hit Control-C to exit.\
-I use pthreads to simulate an operating system on a multiprocessor computer. I use one thread per CPU and one thread as a 'supervisor' for our simulation. The CPU threads will simulate the currently-running processes on each CPU, and the supervisor thread will print output and dispatch events to the CPU threads.\
+\f1\b\fs64 \cf3 Trace File\cf4 \'b6\cf3 \
+\pard\pardeftab720\sa210\partightenfactor0
+
+\f0\b0\fs32 \cf2 Three trace files are available in the Traces folder. Each line has three fields.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa210\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+The first field gives the type of the memory reference (2 for instruction fetch, 1 for a store's data memory write, and 0 for a load's data memory read).\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+The second field on the line is the address.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+The third field gives the instruction value for a fetch and is always 0 for loads and stores (Not used in this lab).\
+\pard\pardeftab720\sa210\partightenfactor0
+\cf2 For e.g., the gcc trace file has 1,000,000 memory references (one per line) and was collected from the gcc while it was running on a MIPS processor.\
+\pard\pardeftab720\sa210\partightenfactor0
+
+\f1\b\fs64 \cf3 The Simulator\cf4 \'b6\cf3 \
+\pard\pardeftab720\sa210\partightenfactor0
+
+\f0\b0\fs32 \cf2 Your task is to simulate an architecture with a writeback cache --a data cache (D-cache). The cache will be placed between the CPU and memory. The data cache will be used to cache data reads/writes. The cache will use an LRU replacement policy.\
+When initializing the cache, you will be given a block size, a cache size and an associativity (maximum of 32) -- these will always be powers of 2.\
+For every access your cache makes, you will be provided an address and an access type (mem read, mem write, or instruction read). For every cache access, you will need to update the data structures you are using and the cache statistics to reflect the occurrence of that cache access. The statistics you will need to keep track of are the total accesses, total misses, D-cache accesses, D-cache misses and writebacks.\
+\pard\pardeftab720\sa210\partightenfactor0
+
+\fs52 \cf3 Simulator Basics\cf4 \'b6\cf3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa210\partightenfactor0
+\ls2\ilvl0
+\fs32 \cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+You only need to implement the cache directory and not the data section. For each cache block you need to keep track of the tag, valid bit, and dirty bit (was the cache line modified?). For each set you need to keep track of the LRU status of the blocks in the set. Dynamically allocate and create the directory data structure.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa210\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Read and process each address from the trace file -- read a memory reference, extract the index and tag, determine whether it is a hit or a miss, update the directory structure and any other data structures you add (for example counters keeping track of the number of hits or number of references). Do not forget to update the LRU status.\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+You are simulating only one cache configuration at a time.\
+\pard\pardeftab720\sa210\partightenfactor0
+
+\f1\b\fs78 \cf3 Compiling, running and Debugging\cf4 \'b6\cf3 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\f0\b0\fs32 \cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Compiling LRU stack test:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf5 \cb6 gcc lrustack.h lrustack.c lrustacktest.c -o lrustacktest\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0
+\fs32 \cf2 \cb1 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Running LRU stack test:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf5 \cb6 ./lrustacktest\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0
+\fs32 \cf2 \cb1 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Compiling the cache simulator:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf5 \cb6 gcc lrustack.h lrustack.c cachesim.h cachesim.c -o cachesim\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls6\ilvl0
+\fs32 \cf2 \cb1 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Running the cache simulator:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf5 \cb6 ./cachesim <trace> <block_size>, <cache_size>,\
+<associativity>\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls7\ilvl0
+\fs32 \cf2 \cb1 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Expected outputs:\
+\pard\pardeftab720\sa210\partightenfactor0
+\cf2 The Tests folder lists the sample outputs for the three traces provided. \
 \
-Since the code will be called from multiple threads, the CPU scheduler is thread-safe! This means that all data structures used, including the ready queue, is protected using mutexes.\
-The number of CPUs is specified as a command-line parameter to the simulator. For this project, I performed experiments with 1, 2, and 4 CPU simulations.\
+Determine hit rates, miss rates, and writeback traffic for various configuration of a 
+\f1\b \cf2 64 Kbyte unified set associative cache
+\f0\b0 \cf2  (instruction and data), assuming a cold cache for each trace - the cache is initially empty and all lines are in the invalid state. The cache configuration is a combination of the line size and associativity. 
+\f1\b \cf2 Configuration parameters include: cache block size (32 byte, 64 byte, 128 byte, 256 byte, and 512 byte) and associativity (2, 4, 8)
+\f0\b0 \cf2 .\
 \
-Also, for demonstration purposes, the simulator executes much slower than a real system would. In the real world, a CPU burst might range from one to a few hundred milliseconds, whereas in this simulator, they range from 0.2 to 2.0 seconds.\
-The simulator generates a Gantt Chart, showing the current state of the OS at every 100ms interval. The leftmost column shows the current time, in seconds. The next three columns show the number of Running, Ready, and Waiting processes, respectively. The next two columns show the process currently running on each CPU. The rightmost column shows the processes which are currently in the I/O queue, with the head of the queue on the left and the tail of the queue on the right.
-\fs24 \cf0 \kerning1\expnd0\expndtw0 \
 }
